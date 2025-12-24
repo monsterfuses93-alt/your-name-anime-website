@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>My Love ✨</title>
+
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;400&display=swap" rel="stylesheet">
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins', sans-serif;
+}
+
+body{
+    height:100vh;
+    background: linear-gradient(180deg,#0b1026,#1a2a6c,#2b5876);
+    overflow:hidden;
+    color:white;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+}
+
+/* Stars */
+.star{
+    position:absolute;
+    width:2px;
+    height:2px;
+    background:white;
+    animation: twinkle 3s infinite ease-in-out;
+    opacity:0.7;
+}
+@keyframes twinkle{
+    0%,100%{opacity:0.2;}
+    50%{opacity:1;}
+}
+
+/* Main Card */
+.card{
+    background: rgba(255,255,255,0.08);
+    padding:35px;
+    border-radius:20px;
+    box-shadow:0 0 40px rgba(255,255,255,0.2);
+    backdrop-filter: blur(10px);
+    max-width:360px;
+}
+
+h1{
+    font-family:'Great Vibes', cursive;
+    font-size:3em;
+    margin-bottom:15px;
+}
+
+p{
+    font-size:1em;
+    opacity:0.9;
+    line-height:1.5;
+}
+
+/* Buttons */
+button{
+    margin-top:20px;
+    padding:12px 26px;
+    border:none;
+    border-radius:30px;
+    background: linear-gradient(45deg,#ff9a9e,#fad0c4);
+    color:#000;
+    font-size:0.95em;
+    cursor:pointer;
+    transition:0.3s;
+}
+
+button:hover{
+    transform: scale(1.07);
+}
+
+/* Secret popup */
+#secret{
+    display:none;
+    position:fixed;
+    inset:0;
+    background:rgba(0,0,0,0.75);
+    justify-content:center;
+    align-items:center;
+}
+
+.secret-box{
+    background:white;
+    color:#000;
+    padding:30px;
+    border-radius:18px;
+    max-width:320px;
+    text-align:center;
+}
+
+.secret-box h2{
+    font-family:'Great Vibes', cursive;
+    font-size:2.2em;
+    margin-bottom:10px;
+}
+
+.secret-box p{
+    font-size:0.95em;
+    line-height:1.6;
+}
+</style>
+</head>
+<body>
+
+<!-- Stars -->
+<script>
+for(let i=0;i<130;i++){
+    let star=document.createElement("div");
+    star.className="star";
+    star.style.top=Math.random()*100+"%";
+    star.style.left=Math.random()*100+"%";
+    star.style.animationDuration=2+Math.random()*3+"s";
+    document.body.appendChild(star);
+}
+</script>
+
+<div class="card">
+    <h1>My Love</h1>
+    <p>
+        Some connections are written across time,<br>
+        even before two souls meet.
+    </p>
+
+    <button onclick="playMusic()">Play Music ✨</button><br>
+    <button onclick="openSecret()">Secret Message 💌</button>
+</div>
+
+<!-- Secret Message -->
+<div id="secret" onclick="closeSecret()">
+    <div class="secret-box">
+        <h2>My Love</h2>
+        <p>
+            Can’t wait for the day to celebrate the day,<br>
+            when the most beautiful soul was born,<br>
+            is alive,<br>
+            and is my wife.
+        </p>
+    </div>
+</div>
+
+<!-- Background Music (YouTube Embed) -->
+<iframe id="music"
+src="https://www.youtube.com/embed/wdHeiVf0mds?enablejsapi=1"
+allow="autoplay"
+style="display:none">
+</iframe>
+
+<script>
+function playMusic(){
+    let iframe = document.getElementById("music");
+    if(!iframe.src.includes("autoplay")){
+        iframe.src += "&autoplay=1";
+    }
+}
+
+function openSecret(){
+    document.getElementById("secret").style.display="flex";
+}
+
+function closeSecret(){
+    document.getElementById("secret").style.display="none";
+}
+</script>
+
+</body>
+</html>
